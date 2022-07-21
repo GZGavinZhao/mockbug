@@ -1,0 +1,8 @@
+<h1>Router Bug Example</h1>
+<nav>
+   <a [routerLink]="RoutePaths.foo.toUrl()"
+      [routerLinkActive]="'active-route'">Foo</a>
+   <a [routerLink]="RoutePaths.bar.toUrl()"
+      [routerLinkActive]="'active-route'">Bar</a>
+</nav>
+<router-outlet [routes]="Routes.all"></router-outlet>
