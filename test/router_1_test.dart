@@ -13,7 +13,7 @@ import 'app_po.dart';
 @GenerateMocks([Router])
 import 'router_1_test.mocks.dart';
 
-import 'router_test.template.dart' as self;
+import 'router_1_test.template.dart' as self;
 
 late NgTestFixture<AppComponent> fixture;
 late AppPo po;

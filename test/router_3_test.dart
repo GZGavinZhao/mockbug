@@ -25,7 +25,7 @@ import 'app_po.dart';
 )
 import 'router_3_test.mocks.dart';
 
-import 'router_test.template.dart' as self;
+import 'router_3_test.template.dart' as self;
 
 Stream<RouterState> mockStream() {
   return Stream.empty();
@@ -36,7 +36,10 @@ late AppPo po;
 
 @GenerateInjector([
   ValueProvider.forToken(appBaseHref, '/'),
-  routerProviders,
+  // routerProviders,
+  ClassProvider(LocationStrategy, useClass: PathLocationStrategy),
+  ClassProvider(PlatformLocation, useClass: BrowserPlatformLocation),
+  ClassProvider(Location),
   ClassProvider(Router, useClass: MockRouter),
 ])
 final InjectorFactory rootInjector = self.rootInjector$Injector;

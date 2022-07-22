@@ -2,8 +2,8 @@ import 'package:ngdart/angular.dart';
 
 @Component(
   selector: 'foo',
-	template: '''
+  template: '''
 		<h2>Foo</h2>
-'''
+''',
 )
 class FooComponent {}

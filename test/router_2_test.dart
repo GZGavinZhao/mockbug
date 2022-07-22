@@ -4,6 +4,7 @@ import 'package:ngrouter/ngrouter.dart';
 import 'package:ngrouter/src/router/router_impl.dart';
 import 'package:ngtest/angular_test.dart';
 import 'package:test/test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
 import 'package:mockbug/app_component.dart';
@@ -22,7 +23,7 @@ import 'app_po.dart';
 )
 import 'router_2_test.mocks.dart';
 
-import 'router_test.template.dart' as self;
+import 'router_2_test.template.dart' as self;
 
 late NgTestFixture<AppComponent> fixture;
 late AppPo po;
@@ -36,6 +37,7 @@ final InjectorFactory rootInjector = self.rootInjector$Injector;
 
 void main() {
   final injector = InjectorProbe(rootInjector);
+
   final testBed = NgTestBed<AppComponent>(
     ng.AppComponentNgFactory,
     rootInjector: injector.factory,
@@ -43,6 +45,7 @@ void main() {
 
   setUp(() async {
     fixture = await testBed.create();
+
     final context =
         HtmlPageLoaderElement.createFromElement(fixture.rootElement);
     po = AppPo.create(context);
