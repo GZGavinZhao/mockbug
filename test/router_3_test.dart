@@ -9,6 +9,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockbug/app_component.dart';
 import 'package:mockbug/app_component.template.dart' as ng;
 
+import 'utils.dart';
 import 'app_po.dart';
 
 @GenerateMocks(
@@ -65,18 +66,4 @@ void main() {
   test('router is not called', () async {});
 
   tearDown(disposeAnyRunningTest);
-}
-
-class InjectorProbe {
-  InjectorFactory _parent;
-  Injector? _injector;
-
-  InjectorProbe(this._parent);
-
-  InjectorFactory get factory => _factory;
-  Injector? get injector => _injector;
-
-  // Injector _factory([Injector? parent]) => _injector = _parent(parent);
-  Injector _factory(Injector parent) => _injector = _parent(parent);
-  T get<T>(dynamic token) => injector?.get(token);
 }

@@ -3,6 +3,7 @@ import 'package:ngpageloader/html.dart';
 import 'package:ngrouter/ngrouter.dart';
 import 'package:ngtest/angular_test.dart';
 import 'package:test/test.dart';
+import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
 import 'package:mockbug/app_component.dart';
@@ -12,9 +13,9 @@ import 'utils.dart';
 import 'app_po.dart';
 
 @GenerateMocks([Router])
-import 'router_1_test.mocks.dart';
+import 'router_4_test.mocks.dart';
 
-import 'router_1_test.template.dart' as self;
+import 'router_4_test.template.dart' as self;
 
 late NgTestFixture<AppComponent> fixture;
 late AppPo po;
@@ -34,6 +35,9 @@ void main() {
   );
 
   setUp(() async {
+    final mockRouter = injector.get<MockRouter>(Router);
+    when(mockRouter.stream).thenAnswer((realInvocation) => Stream.empty());
+
     fixture = await testBed.create();
     final context =
         HtmlPageLoaderElement.createFromElement(fixture.rootElement);
